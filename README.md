@@ -4,3 +4,6 @@
 #### Readonly implemented
 #### ngModel applied for data change
 #### Save implemented
+
+##### the example table will look like this
+![example](src/assets/ex.png)
