@@ -1,1 +1,90 @@
-<p>table works!</p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="heading">
+            <p><strong><u>Table</u></strong>&nbsp;<u>example</u></p>
+        </div>
+        <div class="table">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <!-- headers over -->
+                <ng-container matColumnDef="headerRow1" >
+                    <th style="border:0px" *matHeaderCellDef colspan="2"></th>
+                </ng-container>
+                <ng-container matColumnDef="headerRow2">
+                    <th mat-header-cell *matHeaderCellDef colspan="1" class="mat-header-cell--center">1ST GROUP</th>
+                </ng-container>
+                <ng-container matColumnDef="headerRow3">
+                    <th mat-header-cell *matHeaderCellDef colspan="2" class="mat-header-cell--center">2ND GROUP</th>
+                </ng-container>
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef> ID  </th>
+                    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                </ng-container>
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> NAME </th>
+                    <td mat-cell *matCellDef="let element, let i = index">
+                        <mat-form-field appearance="outline">
+                            <input [readonly]="inputIsReadOnly(element.age)" matInput [value]="element.name"
+                            [(ngModel)]="element.name"
+                            (ngModelChange)="updateRow(i,element)">  
+                        </mat-form-field>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="age">
+                    <th mat-header-cell *matHeaderCellDef> AGE</th>
+                    <td mat-cell *matCellDef="let element, let i = index">
+                        <mat-form-field appearance="outline" >
+                            <input [readonly]="inputIsReadOnly(element.age) || false" matInput 
+                            [value]="element.age"
+                            [(ngModel)]="element.age"
+                            (ngModelChange)="updateRow(i,element)">
+                        </mat-form-field>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="nationality">
+                    <th mat-header-cell *matHeaderCellDef> NATIONALITY</th>
+                    <td mat-cell *matCellDef="let element, let i = index">
+                        <mat-form-field appearance="outline">
+                            <input [readonly]="inputIsReadOnly(element.age) || false" matInput 
+                            [value]="element.nationality"
+                            [(ngModel)]="element.nationality"
+                            (ngModelChange)="updateRow(i,element)">  
+                        </mat-form-field>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="height">
+                    <th mat-header-cell *matHeaderCellDef>  HEIGHT </th>
+                    <td mat-cell *matCellDef="let element, let i = index">
+                        <mat-form-field appearance="outline">
+                            <input [readonly]="inputIsReadOnly(element.age) || false" matInput 
+                            [value]="element.height"
+                            [(ngModel)]="element.height"
+                            (ngModelChange)="updateRow(i,element)">  
+                        </mat-form-field>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="weight">
+                    <th mat-header-cell *matHeaderCellDef>  WEIGHT </th>
+                    <td mat-cell *matCellDef="let element, let i = index">
+                        <mat-form-field appearance="outline">
+                            <input [readonly]="inputIsReadOnly(element.age) || false" matInput 
+                            [value]="element.weight"
+                            [(ngModel)]="element.weight"
+                            (ngModelChange)="updateRow(i,element)">  
+                        </mat-form-field>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="note">
+                    <th mat-header-cell *matHeaderCellDef>  NOTE </th>
+                    <td mat-cell *matCellDef="let element" > {{element.note}}</td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="headerRow"></tr>
+                <tr mat-header-row *matHeaderRowDef="tableHeader"></tr>
+                <tr mat-row *matRowDef="let row; columns: tableHeader;"
+                    [ngClass]="{'highlight': 'selectedRowIndex' == row.id}"></tr>
+            </table>
+        </div>
+        <div class="save">
+        <button (click)="save()" type="button" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</div>

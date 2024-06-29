@@ -1,0 +1,24 @@
+th.mdc-data-table__header-cell {
+    text-align: center;
+    border: 1px solid currentColor;
+}
+
+.table{
+  margin: 50px;
+}
+ 
+.heading{
+    text-align: left;
+    padding : 20px 20px
+}
+
+td.mdc-data-table__cell{
+    border: 1px solid currentColor;
+}
+
+.save{
+    float: inline-end;
+    margin-right: 50px;
+}
+ 
+ 
